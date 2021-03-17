@@ -6,7 +6,7 @@ The project [MaxAs](https://github.com/NervanaSystems/maxas) is a famous assembl
 
 ## How-to
 
-Take some codes as example:
+The annotated code is in "sgemm64.sass", take some codes as example:
 
 ```assembly
 --:-:1:-:1      S2R R119, SR_TID.X;                                 # R119 = threadIdx.x, tid
@@ -59,3 +59,8 @@ In the example:
 ```
 
 Because the instruction `LDS.U.128` will load 4 4-Bytes numbers, there will be 4 registers with the continuous index will be loaded from the shared memory.
+
+## About
+
+The code is given by Scott Gray (scott[at]openai.com) in the project MaxAs, annotation is given by Jie Ren (jieren9806[at]gmail.com). Because of my limited knowledge, there would be some mistakes in my annotation, feel free to discuss with me. I will be appreciated for your valuable comments.
+This project is released under the MIT License.
