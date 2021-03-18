@@ -16,7 +16,7 @@ The annotated code is in "sgemm64.sass", take some codes as example:
 --:-:-:-:1      LOP.AND R9, R119.reuse, 0xf;                        # R9 = tid & 0xf, tid15
 ```
 
-Words after `#` is my annotation, annotation `R119 = threadIdx.x, tid` means the 119th register stores the value of `threadIdx.x` and it has a alias `tid`; annotation `R9 = tid & 0xf, tid15` means the 9th register stores the result of `tid & 0xf` and the alias of the 9th register is `tid15`. Often, the alias is corresponding to the alias in the pseudo-code given by "SGEMM.pdf":
+Words after `#` are my annotation, annotation `R119 = threadIdx.x, tid` means the 119th register stores the value of `threadIdx.x` and it has a alias `tid`; annotation `R9 = tid & 0xf, tid15` means the 9th register stores the result of `tid & 0xf` and the alias of the 9th register is `tid15`. Often, the alias is corresponding to the alias in the pseudo-code given by "SGEMM.pdf":
 
 ```c
 tid = threadId.x;
