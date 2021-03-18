@@ -26,9 +26,9 @@
 --:-:3:-:1      S2R R122, SR_CTAID.Y;                               # R122 = blockIdx.y, by
 01:-:-:-:1      ISETP.GE.AND P0, PT, R119.reuse, 0x20, PT;          # P0 = tid >= 32
 --:-:-:-:1      LOP.AND R9, R119.reuse, 0xf;                        # R9 = tid & 0xf, tid15
---:-:-:-:1      BFE.U32 R4, R119.reuse, 0x104;                      # 0x104 = 100000100B, BFE operation has the same effect as R4 = ((tid >> 4) & 1), tid2
+--:-:-:-:1      BFE.U32 R4, R119.reuse, 0x104;                      # R4 = ((tid >> 4) & 1), 0x104 = 100000100B, BFE operation has the same effect, tid2
 --:-:-:-:1      MOV R12, c[0x0][0x14c];                             # R12 = c[0x0][0x14c], k
---:-:-:-:1      BFE.U32 R114, R119.reuse, 0x301;                    # 0x301 = 1100000001B, BFE operation has the same effect as R114 = ((tid >> 1) & 7), _readAs
+--:-:-:-:1      BFE.U32 R114, R119.reuse, 0x301;                    # R114 = ((tid >> 1) & 7), 0x301 = 1100000001B, BFE operation has the same effect, _readAs
 --:-:-:-:1      LOP.AND R115, R119.reuse, 0x30;                     # R115 = tid & 0x30, _readBs
 --:-:-:-:1      LOP.AND R0, R119.reuse, 0x1;                        # R0 = tid & 0x1, tid2
 --:-:-:-:1      SHL R13, R9, 0x4;                                   # R13 = R9 << 4, _writeS
@@ -41,7 +41,7 @@
 --:-:-:-:1      STS.128 [R80+0x1000], RZ;                           # [R80+0x1000] = 0, clear smem
 --:-:-:-:1  @P0 MOV R2, c[0x0][0x154];                              # R2 = c[0x0][0x154] if P0, _ldx (4 * ldx)
 --:-:-:-:1      ISCADD R118, R4, R13, 0x8;                          # R118 = R4 << 8 + R13, _writeS
-06:-:-:-:1      SEL R8, R122, R125, P0;                             # R8 = P0 ? R122 : R125, blk
+06:-:-:-:1      SEL R8, R122, R125, P0;                             # R8 = P0 ? by : bx, blk
 --:-:-:-:1 @!P0 MOV32I R113, 0x80000001;                            # R113 = 0x80000001 if !P0, tex
 --:-:-:-:1  @P0 MOV32I R113, 0x80000000;                            # R113 = 0x80000000 if P0, tex
 --:-:-:-:1      LOP.OR R115, R115, R0;                              # R115 = (R115 | R0), _readBs
