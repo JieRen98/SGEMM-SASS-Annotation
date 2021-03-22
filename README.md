@@ -63,4 +63,4 @@ Because the instruction `LDS.U.128` will load 4 4-Bytes numbers, there will be 4
 ## About
 
 The code is given by Scott Gray (scott[at]openai.com) in the project MaxAs, annotation is given by Jie Ren (jieren9806[at]gmail.com). Because of my limited knowledge, there would be some mistakes in my annotation, feel free to discuss with me. I will be appreciated for your valuable comments.
-This project is released under the MIT License.
+This project is released under the [MIT License](https://github.com/JieRen98/SGEMM-SASS-Annotation/blob/main/LICENSE).
